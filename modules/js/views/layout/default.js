@@ -1,32 +1,57 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone'
-], function($, _, Backbone){
+  'jquery',
+  'underscore',
+  'backbone',
+  'js/views/includes/header',
+  'js/views/includes/footer'
+], function layout($, _, Backbone, HeaderView, FooterView) {
+  var LayoutView = Backbone.View.extend({
 
-    var LayoutView = Backbone.View.extend({
+    el: 'body',
 
-        el: 'body',
+    initialize: function initialize() {
+    },
 
-        initialize: function() {
+    events: {
+      'click .sidebar-open-button': 'toggleSidebar'
+    },
 
-        },
+    toggleSidebar: function toggleSidebar(ev) {
+      ev.preventDefault();
 
-        events: {
-        },
+      if (this.$('.sidebar').hasClass('hidden')) {
+        this.$('.sidebar').removeClass('hidden');
+        this.$('.content').css({
+          marginLeft: 250
+        });
+      } else {
+        this.$('.sidebar').addClass('hidden');
+        this.$('.content').css({
+          marginLeft: 0
+        });
+      }
+    },
 
-        render: function() {
-            console.log('defaultLayout render');
+    render: function render(callback) {
+      console.log('defaultLayout render');
 
-            //添加页面Dom
-            this.$el.html(require('html!templates/layout/layout.html'));
-            
-        },
+      // 添加Layout DOM
+      this.$el.html(require('html!templates/layout/layout.html'));
 
-        clean: function() {
-        }
+      // add page-header DOM
+      this.createView('header', HeaderView).render();
 
-    });
+      // add container-default DOM
+      if (callback) callback();
 
-    return LayoutView;
+      // add footer DOM
+      this.createView('footer', FooterView).render();
+    },
+
+    clean: function clean() {
+    }
+
+  });
+
+  return LayoutView;
 });

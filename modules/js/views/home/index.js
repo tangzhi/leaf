@@ -1,38 +1,32 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone'
-], function($, _, Backbone){
+  'jquery',
+  'underscore',
+  'backbone'
+], function home($, _, Backbone) {
+  var HomeView = Backbone.View.extend({
 
-    var HomeView = Backbone.View.extend({
+    el: '.container-default',
 
-        el: '.container-default',
+    initialize: function initialize() {
+    },
 
-        // 默认值为 null
-        getLayout: function() {
-            return 'default';
-        },
+    events: {
+    },
 
-        initialize: function() {
+    render: function render() {
+      // 添加页面Dom
+      var content = require('html!templates/home/index.html');
+      this.$el.html(content);
+      console.log('HomeView render');
+    },
 
-        },
+    clean: function clean() {
+    }
 
-        events: {
-        },
+  }, {
+    // 默认值为 null
+    getLayout: 'default'
+  });
 
-        render: function() {
-            console.log('HomeView render');
-
-            //添加页面Dom
-            var content = require('html!templates/home/index.html');
-            this.$el.html(content);
-            console.log(this.$el.html());
-        },
-
-        clean: function() {
-        }
-
-    });
-
-    return HomeView;
+  return HomeView;
 });

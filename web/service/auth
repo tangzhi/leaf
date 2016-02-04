@@ -1,0 +1,17 @@
+{
+  "username": "admin",
+  "_csrf": "1234567890",
+  
+  "auth": true,
+  "menu-right": [
+    {"route": "login.html", "name": "login", "view": null},
+    {"route": "index.html", "name":"home",  "view":"home/index"},
+    {"route": "", "name":"home", "view": "home/index"},
+    {"route": "404.html", "name": "page404", "view": "home/page404"},
+    {"route": ":nofound", "name": "page404", "view": "home/page404"}
+  ],
+  "route-view": {
+    "home": "home/index",
+    "page404": "home/page404"
+  }
+}

@@ -1,45 +1,34 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone'
-], function($, _, Backbone){
+  'jquery',
+  'underscore',
+  'backbone'
+], function page404($, _, Backbone) {
+  var Page404View = Backbone.View.extend({
 
-    var Page404View = Backbone.View.extend({
+    el: 'body',
 
-        el: 'body',
+    initialize: function initialize() {
+    },
 
-        // 默认值为 null
-        // getLayout: function() {
-        //     return null;
-        // },
+    events: {
+    },
 
-        initialize: function() {
+    render: function render() {
+      console.log('Page404 render');
 
-        },
+      // 设置body的背景色
+      $('body').css('background-color', '#F5F5F5');
 
-        events: {
-        },
+      // 添加页面Dom
+      this.$el.html(require('html!templates/home/404.html'));
+    },
 
-        render: function() {
-            console.log('Page404 render');
+    clean: function clean() {
+      // 恢复body的背景色
+      $('body').css('background-color', '');
+    }
 
-            //设置body的背景色
-            this.bodyBackGroundColor = $('body').css('background-color');
-            $('body').css("background-color","#F5F5F5");
+  });
 
-            //添加页面上选择框式样 awesome-bootstrap-checkbox
-            //require('style!css!awesome-bootstrap-checkbox');
-
-            //添加页面Dom
-            this.$el.html(require('html!templates/home/404.html'));
-        },
-
-        clean: function() {
-            //恢复body的背景色
-            $('body').css('background-color"', this.bodyBackGroundColor);
-        }
-
-    });
-
-    return Page404View;
+  return Page404View;
 });

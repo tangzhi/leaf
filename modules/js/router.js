@@ -1,51 +1,42 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'js/views/home/login'
-], function($, _, Backbone, LoginView){
-    var AppRouter = Backbone.Router.extend({
-        initialize: function (e) {
-            this.engine = e;
-        },
-        
-        routes: {
-            'login.html': 'login',
-            '':'noLogin',
-            ':nofound': 'noLogin'
-        },
-        /*
-        dispatcher: function(View){
-            var that = this;
-            return function(name){
-                var args = Array.prototype.slice.call(arguments, 1);
-                console.log('arguments:',arguments, 'args:', args);
-                that.engine.renderMainView(View, args);
-            };
-        }
-        */
-        noLogin: function(operation) {
-            console.log('noLogin:', operation);
-            Backbone.history.navigate('/login.html', {trigger: true});
-        }
+  'jquery',
+  'underscore',
+  'backbone',
+  'js/views/home/login'
+], function leafRouter($, _, Backbone, LoginView) {
+  var AppRouter = Backbone.Router.extend({
+    initialize: function initialize(e) {
+      this.engine = e;
+    },
+
+    routes: {
+      'login.html': 'login',
+      '': 'noLogin',
+      ':nofound': 'noLogin'
+    },
+
+    noLogin: function noLogin(operation) {
+      console.log('noLogin:', operation);
+      Backbone.history.navigate('/login.html', true);
+    }
+  });
+
+  var router = {};
+  var initialize = function initialize(options) {
+    var engine = options.engine;
+
+    router = new AppRouter(engine);
+    engine.router = router;
+    console.log('engine.router = router');
+
+    router.on('route:login', function login() {
+      console.log('route:login');
+      engine.renderMainView(LoginView);
     });
+  };
 
-    var router = {};
-    var initialize = function(options){
-        var engine = options.engine;
-
-        router = new AppRouter(engine);
-        engine.router = router;
-
-        router.on('route:login', function() {
-            console.log('route:login');
-            engine.renderMainView(LoginView);
-        });
-
-    };
-
-    return {
-        initialize: initialize,
-        router: router
-    };
+  return {
+    initialize: initialize,
+    router: router
+  };
 });

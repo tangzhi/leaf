@@ -18,11 +18,11 @@ module.exports = {
 
     module: {
         preLoaders: [
-            { test: /[\.-]min\.js$/, loader: "source-map-loader" }
+            { test: /[\.-]min\.js$/, loader: 'source-map-loader' }
         ],
         loaders: [
-            { test: /\.(png|jpg|gif)$/, loader: 'url?limit=50000&name=img/[name].[ext]' }, //// inline base64 URLs for <=25kb images, direct URLs for the rest
-            { test: /\.(woff2?|eot|ttf|svg)(\?v=[\d\.]+)?$/, loader: 'url?limit=100000&name=fonts/[hash].[ext]' }
+            { test: /\.(png|jpg|gif)$/, loader: 'url?limit=10000&name=img/[name].[ext]' }, //// inline base64 URLs for <=10kb images, direct URLs for the rest
+            { test: /\.(woff2?|eot|ttf|svg)(\?v=[\d\.]+)?$/, loader: 'url?limit=10000&name=fonts/[hash].[ext]' }
         ],
     },
 
@@ -31,10 +31,10 @@ module.exports = {
             'modules', 'node_modules'
         ],
         alias: {
-            jquery: 'jquery/dist/jquery.min.js',
+            jquery: 'jquery/dist/jquery.min',
             underscore: 'underscore/underscore-min',
             backbone: 'backbone/backbone-min',
-            bootstrap: 'bootstrap/dist/js/bootstrap'
+            bootstrap: 'bootstrap/dist/js/bootstrap.min'
         }
     },
 

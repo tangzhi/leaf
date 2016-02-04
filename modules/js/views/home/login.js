@@ -1,73 +1,62 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'js/models/session',
-    'form-serializer/dist/jquery.serialize-object.min'
-], function($, _, Backbone, Session){
+  'jquery',
+  'underscore',
+  'backbone',
+  'js/engine',
+  'js/models/auth',
+  'form-serializer/dist/jquery.serialize-object.min'
+], function loginView($, _, Backbone, LeafEngine, Auth) {
+  var LoginView = Backbone.View.extend({
 
-    var LoginView = Backbone.View.extend({
+    el: 'body',
 
-        el: 'body',
+    initialize: function initialize() {
+    },
 
-        // 默认值为 null
-        // getLayout: function() {
-        //     return null;
-        // },
+    events: {
+      'submit .login-form': 'login'
+    },
 
-        initialize: function() {
+    login: function login(ev) {
+      var form = $('form');
+      var data = form.serializeObject();
 
-        },
+      // 阻止默认提交
+      ev.preventDefault();
 
-        events: {
-          'submit .login-form': 'login'
-        },
-
-        login: function(ev) {
-            //阻止默认提交
-            ev.preventDefault();
-
-            //
-            var form = $('form,.login-form');
-            var data = form.serializeObject();
-            console.log('data:', JSON.stringify(data));
-            Session.login(data, function (resp) {
-                console.log('login success. auth:', resp.get('auth'));
-                if(resp.get('auth')) {
-                    //
-                    if (resp.get('menu-right')) {
-                        _.each(resp.get('menu-right'), function(item){
-                            console.log("menu-right:", item.route, item.name, item.view);
-                            LeafEngine.loadRoute(item.route, item.name, item.view);
-                        });
-                    }
-                    Backbone.history.navigate('/404.html', {trigger: true});
-                } else {
-                    //that.$el.find('.alert').text(session.get('error')).slideDown(200);
-                }
-            });
-        },
-
-        render: function() {
-            console.log('LoginView render');
-
-            //设置body的背景色
-            this.bodyBackGroundColor = $('body').css('background-color');
-            $('body').css("background-color","#F5F5F5");
-
-            //添加页面上选择框式样 awesome-bootstrap-checkbox
-            require('style!css!awesome-bootstrap-checkbox');
-
-            //添加页面Dom
-            this.$el.html(require('html!templates/home/login.html'));
-        },
-
-        clean: function() {
-            //恢复body的背景色
-            $('body').css('background-color"', this.bodyBackGroundColor);
+      //
+      console.log('data:', JSON.stringify(data));
+      Auth.login(data, function callback(model) {
+        console.log('login success. auth:', model.get('auth'), model);
+        if (model.get('auth')) {
+          //
+          LeafEngine.loadRoute(model.get('menu-right'));
+          Backbone.history.navigate('/index.html', { trigger: true });
+        } else {
+          // that.$el.find('.alert').text(session.get('error')).slideDown(200);
         }
+      });
+    },
 
-    });
+    render: function render() {
+      console.log('LoginView render');
 
-    return LoginView;
+      // 设置body的背景色
+      $('body').css('background-color', '#F5F5F5');
+
+      // 添加页面上选择框式样 awesome-bootstrap-checkbox
+      require('style!css!awesome-bootstrap-checkbox');
+
+      // 添加页面Dom
+      this.$el.html(require('html!templates/home/login.html'));
+    },
+
+    clean: function clean() {
+      // 恢复body的背景色
+      $('body').css('background-color', '');
+    }
+
+  });
+
+  return LoginView;
 });
