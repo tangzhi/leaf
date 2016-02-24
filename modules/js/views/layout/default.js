@@ -2,9 +2,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'js/views/includes/top',
+  'js/views/includes/sidebar',
   'js/views/includes/header',
   'js/views/includes/footer'
-], function layout($, _, Backbone, HeaderView, FooterView) {
+], function layout($, _, Backbone, TopView, SidebarView, HeaderView, FooterView) {
   var LayoutView = Backbone.View.extend({
 
     el: 'body',
@@ -38,13 +40,19 @@ define([
       // 添加Layout DOM
       this.$el.html(require('html!templates/layout/layout.html'));
 
-      // add page-header DOM
+      // add #top DOM
+      this.createView('top', TopView).render();
+
+      // add .sidebar DOM
+      this.createView('sidebar', SidebarView).render();
+
+      // add .page-header DOM
       this.createView('header', HeaderView).render();
 
-      // add container-default DOM
+      // add .container-default DOM
       if (callback) callback();
 
-      // add footer DOM
+      // add .footer DOM
       this.createView('footer', FooterView).render();
     },
 

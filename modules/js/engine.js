@@ -19,13 +19,13 @@ define([
       /* eslint-enable no-param-reassign */
     });
 
-    $(document).on('click', 'a[href]:not(.leaf-no-catch)', function b(e) {
+    $(document).on('click', 'a[href!="#"]:not(.leaf-no-catch)', function b(e) {
       if (typeof $(this).attr('href') !== 'undefined') {
         // 阻止默认操作
         e.preventDefault();
         // 日志
         console.log('catch url:', $(this).attr('href'));
-                // 导航
+        // 导航
         Backbone.history.navigate($(this).attr('href'), true);
         $(document).scrollTop(0);
       } else {

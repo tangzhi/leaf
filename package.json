@@ -32,6 +32,7 @@
     "imports-loader": "^0.6.5",
     "jquery": "^1.12.0",
     "jquery-ui-bundle": "^1.11.4",
+    "jquery.cookie": "^1.4.1",
     "script-loader": "^0.6.1",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.0",
