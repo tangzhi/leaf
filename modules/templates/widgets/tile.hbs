@@ -1,0 +1,23 @@
+{{#if checked}}
+<div class="corner"></div>
+<div class="check"></div>
+{{/if}}
+<div class="tile-body">
+  {{#if body_custom}}
+    {{{body_custom}}}
+  {{else}}
+    <i class="{{body_i_class}}"></i>
+  {{/if}}
+</div>
+<div class="tile-object">
+  {{#if object_custom}}
+    {{{object_custom}}}
+  {{else}}
+    <div class="name">
+      {{object_name}}
+    </div>
+    <div class="number">
+      {{object_number}}
+    </div>
+  {{/if}}
+</div>

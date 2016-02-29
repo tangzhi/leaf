@@ -5,6 +5,8 @@ require('style!css!css/style.css');
 require('style!css!css/responsive.css');
 require('style!css!css/shortcuts.css');
 
+require('style!css!css/components.css');
+
 require(['js/engine', 'js/router'], function main(Engine, Router) {
   Engine.initialize();
   Router.initialize({ engine: Engine });

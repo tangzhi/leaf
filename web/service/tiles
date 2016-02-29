@@ -1,0 +1,158 @@
+[
+  {
+    "type": "double-down",
+    "bg_color": "color6-bg",
+    "body_i_class": "fa fa-bell-o",
+    "object_name": "系统通知",
+    "object_number": "3"
+  },
+  {
+    "bg_color": "color13-bg",
+    "body_i_class": "fa fa-car",
+    "object_name": "车主业务",
+    "object_number": "",
+    "menu-items": [
+      {
+        "parent_id": null,
+        "item_id": "P0001",
+        "item_name": "客户实名",
+        "item_href": "person-real-name.html",
+        "item_order": 5,
+        "category": "person"
+      },
+      {
+        "parent_id": null,
+        "item_id": "P0010",
+        "item_name": "付费方式修改",
+        "item_href": "person-pay-relation.html",
+        "item_order": 6,
+        "category": "person"
+      },
+      {
+        "parent_id": null,
+        "item_id": "P0002",
+        "item_name": "停机",
+        "item_href": "person-change-state.html",
+        "item_order": 10,
+        "category": "person"
+      },
+      {
+        "parent_id": null,
+        "item_id": "P0003",
+        "item_name": "复机",
+        "item_href": "person-change-state.html",
+        "item_order": 11,
+        "category": "person"
+      },
+      {
+        "parent_id": null,
+        "item_id": "P0004",
+        "item_name": "销号",
+        "item_href": "person-destroy.html",
+        "item_order": 15,
+        "category": "person"
+      },
+      {
+        "parent_id": null,
+        "item_id": "P0005",
+        "item_name": "用户查询",
+        "item_href": "person-query.html",
+        "item_order": 20,
+        "category": "person"
+      }
+    ]
+  },
+  {
+    "type": "double",
+    "selected": true,
+    "checked": true,
+    "bg_color": "color7-bg",
+    "body_i_class": "fa fa-institution",
+    "object_name": "企业业务",
+    "object_number": "",
+    "menu-items": [
+      {
+        "parent_id": null,
+        "item_id": "G0001",
+        "item_name": "企业登记",
+        "item_href": "group-register.html",
+        "item_order": 5,
+        "category": "group"
+      },
+      {
+        "parent_id": null,
+        "item_id": "G0005",
+        "item_name": "企业管理员创建",
+        "item_href": "group-operator-create.html",
+        "item_order": 10,
+        "category": "group"
+      },
+      {
+        "parent_id": null,
+        "item_id": "G0010",
+        "item_name": "企业资料修改",
+        "item_href": "group-info-modify.html",
+        "item_order": 50,
+        "category": "group"
+      },
+      {
+        "parent_id": null,
+        "item_id": "G0020",
+        "item_name": "企业账户资料修改",
+        "item_href": "group-account-modify.html",
+        "item_order": 55,
+        "category": "group"
+      }
+    ]
+  },
+  {
+    "bg_color": "color9-bg",
+    "body_i_class": "fa fa-jpy",
+    "object_name": "资费计划",
+    "object_number": ""
+  },
+  {
+    "type": "double",
+    "bg_color": "color8-bg",
+    "body_i_class": "fa fa-credit-card",
+    "object_name": "卡资源管理",
+    "object_number": ""
+  },
+  {
+    "bg_color": "color11-bg",
+    "body_i_class": "fa fa-shopping-cart",
+    "object_name": "订单",
+    "object_number": ""
+  },
+  {
+    "bg_color": "color7-bg",
+    "body_i_class": "fa fa-phone",
+    "object_name": "通信计划",
+    "object_number": ""
+  },
+  {
+    "bg_color": "color9-bg",
+    "body_i_class": "fa fa-cogs",
+    "object_name": "系统管理",
+    "object_number": ""
+  },
+  {
+    "type": "double",
+    "bg_color": "color2-bg",
+    "body_custom": "<img src='/assets/img/profileimg.jpg' width='65' alt='' class='pull-right'><h3>@xiaochu_wang</h3><p>努力工作，快乐生活!</p>",
+    "object_name": "我的信息",
+    "object_number": "2016-02-26 10:33"
+  },
+  {
+    "bg_color": "color13-bg",
+    "body_i_class": "fa fa-search",
+    "object_name": "查询",
+    "object_number": ""
+  },
+  {
+    "bg_color": "color6-bg",
+    "body_i_class": "fa fa-bar-chart-o",
+    "object_name": "报表统计",
+    "object_number": ""
+  }
+]

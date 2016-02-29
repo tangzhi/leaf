@@ -1,8 +1,9 @@
 define([
   'jquery',
   'underscore',
-  'backbone'
-], function home($, _, Backbone) {
+  'backbone',
+  'js/views/widgets/tiles'
+], function home($, _, Backbone, TilesView) {
   var HomeView = Backbone.View.extend({
 
     el: '.container-default',
@@ -15,8 +16,9 @@ define([
 
     render: function render() {
       // 添加页面Dom
-      var content = require('html!templates/home/index.html');
-      this.$el.html(content);
+      var tiles = new TilesView();
+      this.$el.append(tiles.render().el);
+      this.$el.append('<br><br><br><br><br><br><br><br><br><br>');
       console.log('HomeView render');
     },
 

@@ -5,8 +5,9 @@ define([
   'js/views/includes/top',
   'js/views/includes/sidebar',
   'js/views/includes/header',
-  'js/views/includes/footer'
-], function layout($, _, Backbone, TopView, SidebarView, HeaderView, FooterView) {
+  'js/views/includes/footer',
+  'js/views/includes/sidepanel'
+], function layout($, _, Backbone, TopView, SidebarView, HeaderView, FooterView, sidepanelView) {
   var LayoutView = Backbone.View.extend({
 
     el: 'body',
@@ -15,7 +16,8 @@ define([
     },
 
     events: {
-      'click .sidebar-open-button': 'toggleSidebar'
+      'click .sidebar-open-button': 'toggleSidebar',
+      'click .sidepanel-open-button': 'toggleSidepanel'
     },
 
     toggleSidebar: function toggleSidebar(ev) {
@@ -32,6 +34,12 @@ define([
           marginLeft: 0
         });
       }
+    },
+
+    toggleSidepanel: function toggleSidepanel(ev) {
+      ev.preventDefault();
+
+      this.$('.sidepanel').toggle(100);
     },
 
     render: function render(callback) {
@@ -54,6 +62,9 @@ define([
 
       // add .footer DOM
       this.createView('footer', FooterView).render();
+
+      // add .sidepanel DOM
+      this.createView('sidepanel', sidepanelView).render();
     },
 
     clean: function clean() {
