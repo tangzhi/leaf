@@ -21,6 +21,7 @@
     "awesome-bootstrap-checkbox": "^0.3.6",
     "backbone": "^1.2.3",
     "bootstrap": "^3.3.2",
+    "bootstrap-select": "^1.10.0",
     "clean-webpack-plugin": "^0.1.6",
     "css-loader": "^0.23.1",
     "exports-loader": "^0.6.2",

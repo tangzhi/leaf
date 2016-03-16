@@ -12,12 +12,37 @@ define([
       this.listenTo(this.model, 'change', this.render);
     },
 
+    events: {
+      'click div': 'itemClick'
+    },
+
+    itemClick: function click() {
+      var oldModel = window.LeafEngine.getView('sidebar').mainItems.currentModel;
+      if (oldModel === this.model) {
+        return;
+      }
+
+      oldModel.set('selected', false);
+      oldModel.set('checked', false);
+
+      this.model.set('selected', true);
+      this.model.set('checked', true);
+    },
+
     render: function render() {
       var tileTemplate = require('templates/widgets/tile.hbs');
       this.$el.html(tileTemplate(this.model.toJSON()));
       this.$el.removeClass().addClass('tile');
       this.$el.addClass(this.model.get('bg_color')).addClass(this.model.get('type'));
       this.$el.toggleClass('selected', this.model.get('selected'));
+      if (this.model.get('checked')) {
+        window
+          .LeafEngine
+          .getView('sidebar')
+          .mainItems
+          .reset(this.model.toJSON()['menu-items']);
+        window.LeafEngine.getView('sidebar').mainItems.currentModel = this.model;
+      }
       return this;
     }
 

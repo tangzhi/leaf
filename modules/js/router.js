@@ -4,6 +4,7 @@ define([
   'backbone',
   'js/views/home/login'
 ], function leafRouter($, _, Backbone, LoginView) {
+  var pageBeforeLogin;
   var AppRouter = Backbone.Router.extend({
     initialize: function initialize(e) {
       this.engine = e;
@@ -17,6 +18,7 @@ define([
 
     noLogin: function noLogin(operation) {
       console.log('noLogin:', operation);
+      pageBeforeLogin = operation;
       Backbone.history.navigate('/login.html', true);
     }
   });
@@ -31,7 +33,8 @@ define([
 
     router.on('route:login', function login() {
       console.log('route:login');
-      engine.renderMainView(LoginView);
+      engine.renderMainView(LoginView, { prePage: pageBeforeLogin });
+      pageBeforeLogin = null;
     });
   };
 

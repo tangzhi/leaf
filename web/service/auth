@@ -1,9 +1,11 @@
 {
   "username": "admin",
   "_csrf": "1234567890",
-  
+
   "auth": true,
   "menu-right": [
+    {"route": "create-account.html", "name": "create-account", "view": "pages/create-account"},
+
     {"route": "login.html", "name": "login", "view": null},
     {"route": "index.html", "name":"home",  "view":"home/index"},
     {"route": "", "name":"home", "view": "home/index"},

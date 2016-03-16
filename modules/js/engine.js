@@ -7,6 +7,7 @@ define([
   var views = {};
   var LeafEngine = {};
   var currentLayout;
+  var currentLayoutName;
 
   function initialize() {
     $.ajaxPrefilter(function c(options) {
@@ -48,29 +49,37 @@ define([
     return views[name];
   }
 
-  function renderLayout(templateName, callback) {
-    if (currentLayout !== undefined) {
-      _
-        .chain(views)
-        .reverse()  /* 后建先删 */
-        .each(function clean(view) {
-          if (typeof view.clean === 'function') {
-            view.clean();
-          }
-          view.undelegateEvents();
-        });
-    }
+  function destroyLayout() {
+    _
+      .chain(views)
+      .reverse()  /* 后建先删 */
+      .each(function clean(view) {
+        if (typeof view.clean === 'function') {
+          view.clean();
+        }
+        view.undelegateEvents();
+      });
+  }
 
+  function renderLayout(templateName, callback) {
+    console.log('oldTemplate:%s, newTemplate:%s', currentLayoutName, templateName);
     if (templateName === null) {
+      destroyLayout();
+      currentLayoutName = null;
       if (callback) callback();
       return;
     }
 
     require.ensure([], function render(require) {
-      var View = require('js/views/layout/' + templateName);
-      var layout = createView('layout', View);
-      layout.createView = createView;
-      layout.render(callback);
+      if (templateName !== currentLayoutName) {
+        destroyLayout();
+        currentLayoutName = templateName;
+        currentLayout = createView('layout', require('js/views/layout/' + templateName));
+        currentLayout.createView = createView;
+        currentLayout.render(callback);
+      } else {
+        if (callback) callback();
+      }
     });
   }
 
@@ -122,10 +131,14 @@ define([
     // });
   }
 
+  function getView(name) {
+    return views[name];
+  }
+
   window.LeafEngine = LeafEngine;
 
   _.extend(LeafEngine, {
-    views: views,
+    getView: getView,
     initialize: initialize,
     renderMainView: renderMainView,
     loadRoute: loadRoute,

@@ -1,0 +1,19 @@
+<a href="{{item_href}}" {{#if item_active}}class="active"{{/if}}>
+  {{#if icon_class}}
+  <span class="icon {{icon_color}}">
+    <i class="{{icon_class}}"></i>
+  </span>
+  {{/if}}
+  {{item_name}}
+  {{#if label}}
+  <span class="label label-{{label_type}}">{{label}}</span>
+  {{/if}}
+  {{#if children}}
+  <span class="caret"></span>
+  {{/if}}
+</a>
+{{#if children}}
+<ul>
+  
+</ul>
+{{/if}}

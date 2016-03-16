@@ -17,6 +17,7 @@
         "item_id": "P0001",
         "item_name": "客户实名",
         "item_href": "person-real-name.html",
+        "icon_class": "fa fa-photo",
         "item_order": 5,
         "category": "person"
       },
@@ -25,6 +26,7 @@
         "item_id": "P0010",
         "item_name": "付费方式修改",
         "item_href": "person-pay-relation.html",
+        "icon_class": "fa fa-cny",
         "item_order": 6,
         "category": "person"
       },
@@ -73,9 +75,19 @@
     "menu-items": [
       {
         "parent_id": null,
+        "item_id": "G0000",
+        "item_name": "创建账户",
+        "item_href": "create-account.html",
+        "icon_class": "fa fa-plus",
+        "item_order": 1,
+        "category": "group"
+      },
+      {
+        "parent_id": null,
         "item_id": "G0001",
         "item_name": "企业登记",
         "item_href": "group-register.html",
+        "icon_class": "fa fa-plus",
         "item_order": 5,
         "category": "group"
       },
@@ -84,6 +96,7 @@
         "item_id": "G0005",
         "item_name": "企业管理员创建",
         "item_href": "group-operator-create.html",
+        "icon_class": "fa fa-users",
         "item_order": 10,
         "category": "group"
       },
@@ -92,6 +105,7 @@
         "item_id": "G0010",
         "item_name": "企业资料修改",
         "item_href": "group-info-modify.html",
+        "icon_class": "fa fa-edit",
         "item_order": 50,
         "category": "group"
       },
@@ -100,6 +114,7 @@
         "item_id": "G0020",
         "item_name": "企业账户资料修改",
         "item_href": "group-account-modify.html",
+        "icon_class": "fa fa-edit",
         "item_order": 55,
         "category": "group"
       }

@@ -10,7 +10,8 @@ define([
 
     el: 'body',
 
-    initialize: function initialize() {
+    initialize: function initialize(opt) {
+      this.prePage = opt.prePage;
     },
 
     events: {
@@ -20,7 +21,8 @@ define([
     login: function login(ev) {
       var form = $('form');
       var data = form.serializeObject();
-
+      var prePage = this.prePage;
+      console.log('prePage:%s', prePage);
       // 阻止默认提交
       ev.preventDefault();
 
@@ -31,7 +33,7 @@ define([
         if (model.get('auth')) {
           //
           LeafEngine.loadRoute(model.get('menu-right'));
-          Backbone.history.navigate('/index.html', { trigger: true });
+          Backbone.history.navigate(prePage ? prePage : '/index.html', { trigger: true });
         } else {
           // that.$el.find('.alert').text(session.get('error')).slideDown(200);
         }

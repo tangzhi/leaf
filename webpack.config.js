@@ -4,8 +4,8 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   context: __dirname + '/modules',
   entry: {
-    'main': './js/app.js',
-    'vendors': [
+    main: './js/app.js',
+    vendors: [
       'jquery', 'underscore', 'backbone', 'bootstrap'
     ]
   },

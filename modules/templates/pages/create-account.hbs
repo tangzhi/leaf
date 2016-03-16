@@ -1,0 +1,221 @@
+<div class="container-padding">
+<form class="form-horizontal">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          第1步，共4步
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="panel panel-default">
+        <div class="panel-title">
+          基本信息
+          <ul class="panel-tools">
+            <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+            <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+          </ul>
+        </div>
+        <div class="panel-body">
+
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label for="accountName" class="col-sm-4 control-label form-label">账户名称</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="accountName">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label for="accountType" class="col-sm-4 control-label form-label">账户类型</label>
+                <div class="col-sm-8">
+                  <select class="selectpicker" id="accountType">
+                    <option>标准</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label for="taxId" class="col-sm-4 control-label form-label">税号</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="taxId">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label class="col-sm-4 control-label form-label">账户转移时默认SIM卡状态</label>
+                <div class="col-sm-8">
+                  <select class="selectpicker">
+                    <option data-icon="fa-circle color9">可测试</option>
+                    <option data-icon="fa-circle color3">库存</option>
+                    <option data-icon="fa-circle color15">可激活</option>
+                    <option data-icon="fa-circle color7">已激活</option>
+                    <option data-icon="fa-circle color14">已停用</option>
+                    <option data-icon="fa-circle color1">已失效</option>
+                    <option data-icon="fa-circle color2">已清除</option>
+                    <option data-icon="fa-circle color6">已更换</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="nodes" class="col-sm-2 control-label form-label">备注</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="4" id="nodes" placeholder="输入信息..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="panel panel-default">
+
+        <div class="panel-title">
+          主要联系人
+          <ul class="panel-tools">
+            <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+            <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+          </ul>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="form-group">
+            <label for="primaryContact.name" class="col-sm-4 control-label form-label">名字</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="primaryContact.name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="primaryContact.lastName" class="col-sm-4 control-label form-label">姓氏</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="primaryContact.lastName">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="primaryContact.phone" class="col-sm-4 control-label form-label">电话</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="primaryContact.phone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="primaryContact.email" class="col-sm-4 control-label form-label">电子邮件</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="primaryContact.email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="primaryContact.fax" class="col-sm-4 control-label form-label">传真</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="primaryContact.fax">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="primaryContact.jobTitle" class="col-sm-4 control-label form-label">职位</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="primaryContact.jobTitle">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+      <div class="panel panel-default">
+
+        <div class="panel-title">
+          账单联系人
+          <ul class="panel-tools">
+            <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+            <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+          </ul>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="form-group">
+            <label for="billingContact.name" class="col-sm-4 control-label form-label">名字</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="billingContact.name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="billingContact.lastName" class="col-sm-4 control-label form-label">姓氏</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="billingContact.lastName">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="billingContact.phone" class="col-sm-4 control-label form-label">电话</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="billingContact.phone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="billingContact.email" class="col-sm-4 control-label form-label">电子邮件</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="billingContact.email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="billingContact.fax" class="col-sm-4 control-label form-label">传真</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="billingContact.fax">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="billingContact.jobTitle" class="col-sm-4 control-label form-label">职位</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="billingContact.jobTitle">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body form-inline">
+          <a href="#" class="btn float-r">取消</a>
+          <a href="#" class="btn float-r">完成</a>
+          <a href="#" class="btn btn-success float-r">下一步</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+</div>

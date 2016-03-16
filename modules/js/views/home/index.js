@@ -17,6 +17,7 @@ define([
     render: function render() {
       // 添加页面Dom
       var tiles = new TilesView();
+      this.$el.html('');
       this.$el.append(tiles.render().el);
       this.$el.append('<br><br><br><br><br><br><br><br><br><br>');
       console.log('HomeView render');
