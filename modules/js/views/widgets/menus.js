@@ -1,9 +1,8 @@
 define([
   'jquery',
   'underscore',
-  'backbone',
-  'js/collections/menuitems'
-], function main($, _, Backbone, MenuItems) {
+  'backbone'
+], function main($, _, Backbone) {
   var ItemView = Backbone.View.extend({
 
     tagName: 'li',

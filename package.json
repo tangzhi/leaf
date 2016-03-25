@@ -4,6 +4,7 @@
   "description": "html framework",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint ./*.js modules",
     "build": "webpack -d --display-chunks --display-modules --display-origins --progress --colors --watch",
     "deploy": "webpack -p --progress --colors --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -43,5 +44,8 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.12.12"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^4.0.0"
+  }
 }

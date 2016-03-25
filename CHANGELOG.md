@@ -1,3 +1,7 @@
+### [V1.0.2] - (2016-03-25) @tangzhi
+
+* 添加 eslint / eslint-config-airbnb / .eslintignore
+* 添加 npm script lint
 
 ### [V1.0.1] - (2016-03-16) @tangzhi
 
